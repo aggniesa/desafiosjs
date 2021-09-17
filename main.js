@@ -14,7 +14,7 @@ else if  (numero == 100 ) {
 }
 else {
     alert('El número es mayor a 100');
-}*/
+}
 
 // Desafío 3 
 let number;
@@ -61,3 +61,71 @@ let enterPassword = prompt('Ingresa tu contraseña');
                     break;
             }    
     }
+    
+
+    // Desafío 4
+    let precio = parseFloat(prompt('Ingresá el precio del producto'));
+    let cuotas = parseInt(prompt('Ingresá la cantidad de cuotas (Hasta 12)'));
+    let valorFinal = 0;
+    
+    
+    //función para cacular precio con interés
+    function precioInteres(precioProd , porcentaje) {
+
+    valorFinal = precioProd + (precioProd * porcentaje);
+    return valorFinal;
+    }
+    
+    // función para calcular valor de las cuotas
+    const valorCuotas = (precioFinal, cuotasIngresadas) => precioFinal / cuotasIngresadas ;
+
+    //Función para agregar descuento
+    const descuento = (precioProd) => precioProd - (precioProd * 0.1);
+       
+    
+    // volver a datos mal ingresados
+    while (isNaN(precio) || cuotas ==0 && cuotas > 12) {
+        alert('Alguno de los valores ingresados es incorrecto. Intentá de nuevo');
+        precio = parseFloat(prompt('Ingresá el precio del producto'));
+        cuotas = parseInt(prompt('Ingresá la cantidad de cuotas (Hasta 12)'));
+    }
+    
+    // definir % interés según cantidad de cuotas y devolver precio final 
+    if (cuotas >1 && cuotas <=3){
+            precioInteres(precio, 0.05);}
+        
+    else if (cuotas >3 && cuotas <= 6){
+        precioInteres(precio, 0.1);}           
+        
+    else if (cuotas >6 && cuotas <= 12) {
+            precioInteres(precio, 0.15);}
+
+    else {
+            precioInteres (precio, 0);
+    }
+        
+    alert(precioInteres(descuento(precio),); */
+
+//Desafío 4 + 4 Complementario
+let precio1 = parseFloat(prompt('Ingrese el precio del primer producto'));
+let precio2 = parseFloat(prompt('Ingrese el precio del segundo producto'));
+let precio3 = parseFloat(prompt('Ingrese el precio del tercer producto'));
+let numCuotas = parseInt(prompt('Ingrese la cantidad de cuotas'));
+
+const suma = (a,b,c) => a + b + c ;
+
+const descuento = (total) => {
+    return total - (total * 15 / 100);
+}
+
+const cuotas = (totalConDescuento, numCuotas) => totalConDescuento / numCuotas ;
+
+while(isNaN(precio1) || isNaN(precio2) || isNaN(precio3) || isNaN(numCuotas)){
+    alert('Alguno de los valores ingresados son incorrectos. Intente de nuevo');
+    precio1 = parseFloat(prompt('Ingrese el precio del primer producto'));
+    precio2 = parseFloat(prompt('Ingrese el precio del segundo producto'));
+    precio3 = parseFloat(prompt('Ingrese el precio del tercer producto'));
+    numCuotas = parseInt(prompt('Ingrese la cantidad de cuotas'));
+}
+
+console.log("Pagás " + numCuotas + " cuotas de " + parseFloat(cuotas(descuento(suma(precio1, precio2, precio3)), numCuotas)).toFixed(2));
